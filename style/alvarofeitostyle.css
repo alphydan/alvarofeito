@@ -12,7 +12,7 @@ body {
 }
 
 /* Layout */
-#thecontent
+.thecontent
 {
     background: rgba(225,210,31,0.2);  /* #Ffd21f; */
     color: #333;
@@ -27,6 +27,50 @@ body {
     padding:20px;  
     margin: 50px auto;   /*10px 10px 10px 10px;  */
     max-width: 450px;
+}
+
+#article{
+    background: rgba(225,210,31,0.3);
+    color: #333;
+
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow:-9px -9px -12px #cccccc;
+    -webkit-box-shadow:6px 6px 9px #cccccc;
+    -moz-box-shadow:-4px -4px 4px #cccccc;
+
+    padding:20px;  
+    margin: 50px auto;   /*10px 10px 10px 10px;  */
+    max-width: 640px;
+
+}
+
+#article-title{
+   font: 20px/25px 'BitstreamVeraSansRoman', Arial, sans-serif;
+   padding-top: 15px;
+   color: #000;
+   decoration: none;
+}
+
+.gray{
+    color: #666;
+}
+
+blockquote{
+    color: #333;
+    font-size: 28px;
+    padding: 20px 10px 0px 10px;
+
+}
+
+.caption{
+    float: right;
+    font-size: 12px;
+}
+
+ul.biblio{
+     list-style-type: none;  
 }
 
 /* Rotation Fancyness */
@@ -104,6 +148,7 @@ p.linkinit a:hover
     color: #333;
     text-decoration:none;
 }
+
 
 
 

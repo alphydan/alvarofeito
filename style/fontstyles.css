@@ -50,6 +50,28 @@ color: #000;
 decorations: none;
 }
 
+ul.article-list{
+   font: 15px/25px 'BitstreamVeraSansRoman', Arial, sans-serif;
+   padding-left: 30px;
+   list-style-type: none;
+}
+
+.article-list a:link {
+    font: 15px/25px 'BitstreamVeraSansRoman', Arial, sans-serif;
+    decoration: none;
+}
+
+.article-list a:link {text-decoration:none; color:#000; }
+.article-list a:visited {text-decoration:none; color:#000;}
+.article-list a:hover {text-decoration:underline; color:#000;}
+.article-list a:active {text-decoration:underline; color:#000;}
+
+.article-text{
+   font: 15px/25px 'BitstreamVeraSansRoman', Arial, sans-serif;
+   padding-top: 15px;
+   color: #000;
+}
+
 
 
 
