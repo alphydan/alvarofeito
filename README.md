@@ -1,4 +1,4 @@
-## This is just the code for my simple personal homepage
+## my simple personal homepage
 
 ![Screenshot for alvarofeito](http://i.imgur.com/K6sTbih.png "Personal Homepage of Alvaro Feito")
 
