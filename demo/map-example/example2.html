@@ -1,0 +1,110 @@
+<html>
+  <head>
+
+    <style type="text/css" media="screen">
+      .the-form{ padding: 50px 30% 200px 30%; }
+      img{max-width:none} /* IMPORTANT, this ensures the zoom handle, pin, etc are the right proportion */
+      .map_canvas { 
+      width: 500px; 
+      height: 250px; 
+      }
+    </style>
+  </head>
+
+    <body>
+<a href="index.html">Example1</a>  
+<a href="example2.html">Example2</a>  
+<a href="example3.html">Example3</a>  
+
+      <div class="the-form">
+	<h3>Zoom in and Drag the pin onto your roof:</h3>
+        <div class="map_canvas"></div>
+
+
+	<h1>Form and map with dragging - template 2</h1>
+
+
+<input id="id_formatted_address"  type="text" value="London, United Kingdom" /> <b>Addr1:</b> Initial formatted_address (from database) that doesn't update (this one had <b>style="display:none"</b> to hide it) <br />
+<input id="id_formatted_address" maxlength="255" name="formatted_address" type="text" value="" /> <b>Addr2:</b> formatted_address that updates with dragging 	<br />
+<input id="find" type="button" value="find" style="display:none;"/>
+
+<!-- <input type="text" name="address" placeholder="Type your address or postcode" id="id_address" size="90" /><br /> -->
+<!-- 	 <input id="id_formatted_address"  type="text" value="91-94 Lower Marsh, London SE1 7AB, UK" /> formatted_address that updates (this one I made <b>style="display:none"</b> to hide it) <br /> -->
+       <input id="id_lat" name="lat" /> lat (this will be type="hidden")<br /> 
+       <input id="id_lng" name="lng" /> lng (this will be type="hidden") <br /> 
+       <input id="id_location_type" name="location_type" /> location_type (this will be type="hidden") <br /> 
+
+       
+
+       <h2>Requirements:</h2>
+       <ul class="">
+	 <li>When the map loads it must satisfy:</li>
+	 <ol>
+	   <li>If a (lng, lat) exist then use them to center the pin (assume "48.0965595777, 11.116094" for example).</li>
+	   <li>If a (lng, lat) DOES NOT exist then use a formatted address that comes from the database: (assume "91-94 Lower Marsh, London SE1 7AB, UK" for example)</li>
+	   <li>Zoom level 18</li>
+	   <li>centered at pin</li>
+	   <li>Satellite view</li>
+	 </ol>
+	 <li>When we drag the pin the following must happen:</li>
+	 <ol>
+	   <li>it should update the hidden fields: lng, lat, location_type and the visible field Addr2 (or just one if it works with just one address field)</li>
+	   <li>The user should be able to come back to the id_formatted_address input field and edit it without autocomplete (when they hit tab or enter it should not re-update the map). However if after editing this the user drags the pin once more, it should update the formatted_address.  (use case: they dragged the pin onto a part of their roof, but the address corresponding to that part of the roof is not their actual address: So the pin and lng, lat stay on the roof, but they edit the field with their real address and submit both the correct lng,lat for the roof, and the correct address).</li>
+	 </ol>
+       </ul>
+       <h2>Status:</h2>
+       <ul class="">
+	 <li>Dragging behaviour seems to work</li>
+	 <li>Using two different addresses input fields is a hack I used but I don't know if it's necessary</li>
+	 <li>Zoom levels are wrong</li>
+	 <li>I can't initialise the map with lng, lat (I don't know how to do it, so I just pass an address)</li>
+	 <li>If I remove the find button (see the display:none) the map location doesn't load at the beginning</li>
+	 <li>The permutation of the address fields <b>Addr1</b> and <b>Addr2</b>  changes the behaviour of dragging in a way we don't want.  </li>
+	 
+       </ul>
+       
+      </div>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.geocomplete.min.js"></script>
+
+<script type="text/javascript">
+      $(function(){
+        $("#id_formatted_address").geocomplete({
+          map: ".map_canvas",
+//          location: [ {{ auction.location.x }}, {{ auction.location.y }} ],
+          details: "form",
+          mapOptions: {
+              zoom: 18,
+              mapTypeId: "satellite",
+              scrollwheel: true
+          },
+          markerOptions: {
+            draggable: true
+          }
+        }); 
+
+        // The above alone doesn't set the pin, so I search again:
+//      var lng = {{ auction.location.x }};
+//      var lat = {{ auction.location.y }};
+//      var lng_lat = lng +","+ lat;
+//      $("#id_formatted_address").geocomplete("find", lng_lat); 
+
+        $("#id_formatted_address").bind("geocode:dragged", function(event, latLng){
+          $("input[name=lat]").val(latLng.lat());
+          $("input[name=lng]").val(latLng.lng());
+          $("input[name=formatted_address]").geocomplete("find", latLng.lat() + "," + latLng.lng());
+          $("#reset").show();
+        });
+
+        
+        $("#find").click(function(){
+          $("#id_formatted_address").trigger("geocode");
+       }).click(); 
+   }); 
+
+</script>
+
+</html>

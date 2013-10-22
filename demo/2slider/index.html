@@ -1,0 +1,131 @@
+<html>
+<head>
+  <link href="style.css" rel='stylesheet' >
+  <link rel="stylesheet" id="themeCSS" href="rangeslider.css">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.22/jquery-ui.min.js"></script>
+
+  <script type="text/javascript" src="js/jQRangeSlider-min.js"></script>
+  <script type="text/javascript" src="js/jquery.scrollTo-1.4.2-min.js"></script>	
+
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="mask">
+
+
+	  <div id="item1" class="item">
+	    <div class="content">
+	      <section class="center-form-box">
+		<a name="item1"></a>
+		<h1> Select the range: </h1>
+		<div class="slider" id="BudgetSlider"></div>
+		<h3 class="go-button"><a id="BudgetSubmit" href="#item2" class="panel"> Go!</a></h3>
+	      </section>
+	    </div> <!--/content -->
+	  </div>  <!--/item1 -->
+
+
+	  <div id="item2" class="item">
+      	    <div class="content">
+      	      <section class="center-form-box">
+      		<a name="item2"></a>
+      		<h1 class="title-selected"> range: 
+		  <span class="budget-min">?</span> 
+		  --
+		  <span class="budget-max">?</span> 
+		  <small>(<a href="#item1" class="panel">change</a>)</small>
+		</h1>
+      		
+		<h2> What's your name: </h2>
+      		<form  action="">
+      		  <input type="text" name="firstname" /><br />
+      		</form>
+      		<br/><br/>
+      		<h3 class="go-button"><a href="#item1" class="panel">Next!</a> </h3>
+      	      </section>
+      	    </div> <!--/content -->
+	  </div>  <!--/item2 -->
+
+    </div><!-- /mask -->
+  </div><!--/wrapper-->
+</body>
+
+  <script>
+  $("#BudgetSlider").rangeSlider({
+      bounds: {min: 10, max:10000},
+      step: 100,
+      wheelMode: "zoom",
+      defaultValues: {min: 300, max:3000}}
+    );
+    
+  $("#BudgetSubmit").on('click', function(){
+
+  var values = $("#BudgetSlider").rangeSlider("values");
+  Budget0 = values.min;
+  Budget1 = values.max;
+
+  console.log(Budget0);
+  console.log(Budget1);
+
+  $(".budget-min").text(Budget0);
+  $(".budget-max").text(Budget1);
+
+
+
+
+  });
+  </script>
+
+
+<script>
+function resizePanel() {
+ 
+    //get the browser width and height
+    width = $(window).width();
+    height = $(window).height();
+ 
+    //get the mask width: width * total of items
+    mask_width = width * $('.item').length;
+         
+    //set the dimension
+    $('#wrapper, .item').css({width: width, height: height});
+    $('#mask').css({width: mask_width, height: height});
+     
+    //if the item is displayed incorrectly, set it to the corrent pos
+    $('#wrapper').scrollTo($('a.selected').attr('href'), 0);
+         
+}
+$(document).ready(function() {
+ 
+    //get all link with class panel
+    $('a.panel').click(function () {
+ 
+                //reset and highlight the clicked link
+        $('a.panel').removeClass('selected');
+        $(this).addClass('selected');
+         
+        //grab the current item, to be used in resize function
+        current = $(this);
+         
+                //scroll it to the destination
+        $('#wrapper').scrollTo($(this).attr('href'), 800);     
+         
+                //cancel the link default behavior
+        return false;
+    });
+ 
+ 
+    //resize all the items according to the new browser size
+    $(window).resize(function () {
+         
+        //call the resizePanel function
+        resizePanel();
+    });
+     
+});  
+</script>  
+
+</html>

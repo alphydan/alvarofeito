@@ -1,0 +1,108 @@
+/**
+ * Theme inspired by jQRangeSlider
+ * Inspired by http://cssdeck.com/item/381/itunes-10-storage-bar
+ *        and http://cssdeck.com/item/276/pure-css-arrow-with-border-tooltip
+ */
+
+.ui-rangeSlider-noArrow .ui-rangeSlider-container{
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-left: solid 1px #515862;
+  border-right: solid 1px #515862;
+
+  -webkit-box-shadow: inset 0px 4px 6px -2px RGBA(0,0,0,0.5);
+  -moz-box-shadow: inset 0px 4px 6px -2px RGBA(0,0,0,0.5);
+  box-shadow: inset 0px 4px 6px -2px RGBA(0,0,0,0.5);
+}
+
+.ui-rangeSlider-container{
+ 	height: 30px;
+  border-top: solid 1px #ddd;
+  border-bottom: solid 1px #999;
+
+
+background: #eeeeee; /* Old browsers */
+background: -moz-linear-gradient(top,  #eeeeee 0%, #cccccc 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #eeeeee 0%,#cccccc 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #eeeeee 0%,#cccccc 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+
+
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+
+}
+
+
+.ui-rangeSlider-innerBar{
+  width: 110%;
+  height: 100%;
+  left: -10px;
+}
+
+.ui-rangeSlider-bar{
+	background-color: #7d993b;   /* green selected bar #68a1d6; */
+  height: 29px;
+  margin:1px 0;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  cursor:move;
+	cursor:grab;
+	cursor: -moz-grab;
+  
+	-webkit-box-shadow: inset 0 2px 6px RGBA(0,0,0,0.5);
+ -moz-box-shadow: inset 0 2px 6px RGBA(0,0,0,0.5);
+  box-shadow: inset 0 2px 6px RGBA(0,0,0,0.5);;
+ }
+
+.ui-rangeSlider-handle{
+	width:10px;
+	height:30px;
+	background: transparent;
+	cursor:col-resize;
+}
+
+.ui-rangeSlider-label{
+
+
+  background: #bcbcbc;
+  padding: 5px 5px;
+  bottom:10px;
+
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+
+  -webkit-box-shadow: 0px 1px 0px #c2c5d6;
+  -moz-box-shadow: 0px 1px 0px #c2c5d6;
+  box-shadow: 0px 1px 0px #c2c5d6;
+
+  color:white;
+  font-size:1.4em;
+  cursor:col-resize;
+}
+
+.ui-editRangeSlider .ui-rangeSlider-label{
+}
+
+.ui-rangeSlider-label-inner{
+ 
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  display: block;
+  z-index:99;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  margin-left: -10px;
+  border-top: 10px solid  #bbb;
+}
+
+.ui-editRangeSlider-inputValue{
+  width:2em;
+  text-align:center;
+  font-size:15px;
+}
+

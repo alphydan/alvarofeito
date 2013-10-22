@@ -1,0 +1,88 @@
+        * {
+        	margin: 0;
+        	padding: 0;
+        }
+        
+        #clock {
+        	position: relative;
+        	width: 600px; 
+        	height: 600px;
+        	margin: 0px auto 0 auto;
+        	background: url(../img/clockface2.png); 
+        	list-style: none;
+        	}
+        
+         #min, #hour {
+        	position: absolute;
+        	width: 26px;
+        	height: 600px;
+        	top: 0px;
+        	left: 285px;
+        	}
+
+	#sec { position: absolute;
+	       width: 27px;
+	       height: 156px;
+               top: 323px;
+               left: 285px;
+                }
+        #sec {
+        	background: url(../img/sechand2.png);
+        	z-index: 3;
+           	}
+           
+        #min {
+        	background: url(../img/minhand2.png);
+        	z-index: 2;
+           	}
+           
+        #hour {
+        	background: url(../img/hourhand2.png);
+        	z-index: 1;
+           	}
+           	
+
+	a {
+	text-decoration:none;
+	}
+        p {
+            text-align: center; 
+            padding: 10px 0 0 0;
+            }
+	
+	#awake-asleep {
+	position: relative;
+	color: rgba(255,255,255,1); 
+	text-decoration: none;
+	background-color: rgba(219,87,5,1) ;
+	font-family: 'Yanone Kaffeesatz';
+	font-weight: 700;
+	font-size: 3em;
+    display: block;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7); 
+	-moz-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+	box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+	margin: 15px auto;
+	width: 160px;
+	text-align: center;
+	
+	-webkit-transition: all .1s ease;
+	-moz-transition: all .1s ease;
+	-ms-transition: all .1s ease;
+	-o-transition: all .1s ease;
+	transition: all .1s ease;
+}
+
+	#Date { font-family:Arial, Helvetica, sans-serif; font-size:36px; text-align:center; text-shadow:0 0 5px #ccc; }
+
+	.clock-content{
+	position:relative;
+        }
+	#side-status{
+	position: absolute;
+	left:600px;
+	top: 150px;
+        }

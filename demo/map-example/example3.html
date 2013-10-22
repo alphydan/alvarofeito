@@ -1,0 +1,79 @@
+<html>
+  <head>
+
+    <style type="text/css" media="screen">
+      .the-form{ padding: 50px 30% 200px 30%; }
+      img{max-width:none} /* IMPORTANT, this ensures the zoom handle, pin, etc are the right proportion */
+      .map_canvas { 
+      width: 500px; 
+      height: 250px; 
+      }
+    </style>
+  </head>
+
+    <body>
+
+<a href="index.html">Example1</a>  
+<a href="example2.html">Example2</a>  
+<a href="example3.html">Example3</a>  
+
+      <div class="the-form">
+	<input id="geocomplete" type="text" placeholder="Type in an address" style="display:none;"  />
+	<div class="map_canvas"></div>
+
+	<h1>Page to view map  - template 3</h1>
+
+
+       <h2>Requirements:</h2>
+       <ul class="">
+	 <li>When the map loads it must satisfy:</li>
+<ol>
+  
+<li> It should have zoom 18 or over.</li>
+<li> It should be centered around the lng,lat (these variables are available to the page so, just assume "48.0965595777, 11.116094" as an example) </li>
+<li>It should have a pin at the lng, lat (not at the formatted address - This is because the pin for the formatted address could be on a road, but the lng, lat taken from (2) that we want could be on a roof)</li> 
+<li> It should be in satellite mode (and if possible map mode should be disabled )</li>
+<li> no dragging allowed </li>
+</ol>
+       </ul>
+       <h2>Status:</h2>
+       <ul>
+	 <li>Zoom is wrong</li>
+	 <li>It seems to load to the right zoom (without pin) and then reload to the wrong zoom but right location (with the second function)</li>
+	 <li>Can I require only satellite but dissalow map?</li>
+       </ul>
+      </div>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.geocomplete.min.js"></script>
+
+<script type="text/javascript">
+  $(function(){
+  $("#geocomplete").geocomplete({
+     map: ".map_canvas",
+     location: [48.0965595777, 11.116094],
+     mapOptions: {
+       mapTypeId: "satellite",
+       scrollwheel: true,
+       zoom: 19
+                  },
+           });
+  // The above alone doesn't set the pin, so I search again:
+//  var lng = {{ auction.location.x }}; This is how I load the django variables, so you can ignore this
+//  var lat = {{ auction.location.y }};
+  var lng = "48.0965595777"
+  var lat = "11.116094"
+
+  var lng_lat = lng +","+ lat;
+   $("#geocomplete").geocomplete("find", lng_lat);
+
+  // this however brings the zoom back to default ... 
+  // and I don't know how to change it
+
+
+  }); // close function
+</script>
+
+</html>

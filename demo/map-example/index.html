@@ -1,0 +1,64 @@
+<html>
+  <head>
+
+    <style type="text/css" media="screen">
+      .the-form{ padding: 200px 30% 200px 30%; }
+    </style>
+  </head>
+
+    <body>
+<a href="index.html">Example1</a>  
+<a href="example2.html">Example2</a>  
+<a href="example3.html">Example3</a>  
+
+      <div class="the-form">
+	<h1>Form Only - template 1</h1>
+      <input type="text" name="address" placeholder="Type your address or postcode" id="id_address" size="90" /><br />
+       <input id="id_lat" name="lat" /> lat (this will be type="hidden")<br /> 
+       <input id="id_lng" name="lng" /> lng (this will be type="hidden") <br /> 
+       <input id="id_location_type" name="location_type" /> location_type (this will be type="hidden") <br /> 
+
+
+       <h2>Requirements:</h2>
+       <ul class="">
+	 <li>Autocomplete with Google Places</li>
+	 <li>We extract lat, lng and location_type</li>
+       </ul>
+       <h2>Status:</h2>
+       <ul class="">
+	 <li>Seems to work modulo the location_type</li>
+       </ul>
+       
+      </div>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.geocomplete.min.js"></script>
+
+<script type="text/javascript">
+  $(function(){
+        $("#id_address").geocomplete()
+          .bind("geocode:result", function(event, result){
+            $.log(result.formatted_address);
+              $("input#id_lat").val(result.geometry.location.lat());
+              $("input#id_lng").val(result.geometry.location.lng());
+              $("input#id_location_type").val(result.geometry);
+          })
+
+          .bind("geocode:error", function(event, status){
+            $.log(status);
+          })
+
+          .bind("geocode:multiple", function(event, results){
+            $.log("Multiple: " + results.length + " results found");
+          });
+});
+
+$.log = function(message){
+  var $logger = $("#address");
+   $logger.val(message); // write the found address to the hidden form
+}
+</script>
+
+</html>
