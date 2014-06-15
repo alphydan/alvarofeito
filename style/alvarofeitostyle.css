@@ -53,6 +53,27 @@ body {
    decoration: none;
 }
 
+.contact{
+       font: 18px/20px 'BitstreamVeraSansRoman', Arial, sans-serif;
+       padding:10px 20px 0px 0px;
+       text-align: right;
+}
+
+.contact a{
+    color: #333;
+    text-decoration:none;
+}
+.contact a:hover 
+{  background-color: rgba(225,210,31,0.05);
+    color: #333;
+    text-decoration:none;
+}
+
+.gpg {
+font-family:Courier; 
+font-size:12px;"
+}
+
 .article-list li{
     padding-top: 10px;
 }
