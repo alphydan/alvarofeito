@@ -1,0 +1,158 @@
+/* ========================================
+A free ultra-simple xhtml5/css3 template by Alvaro F. Boirac - http://www.alvarofeito.com/ -
+released as public domain (Creative Commons no rights reserved).
+For more details on this licence or waiver visit: http://wiki.creativecommons.org/CC0
+==========================================  */
+
+@import "fontstyles.css";
+@import "reset.css";
+
+body {
+    background: rgba(8,76,158,0.8); /* #084c9e; */
+}
+
+/* Layout */
+.thecontent
+{
+    background:  #ffffff;
+    color: #333;
+
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow:-4px -4px -6px #cccccc;
+    -webkit-box-shadow:4px 4px 6px #cccccc;
+    -moz-box-shadow:-2px -2px 2px #cccccc;
+
+    padding:20px;
+    margin: 36px auto;   /*10px 10px 10px 10px;  */
+    max-width: 650px;
+}
+
+#article{
+    background: #ffffff;
+    color: #333;
+
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow:-9px -9px -12px #cccccc;
+    -webkit-box-shadow:6px 6px 9px #cccccc;
+    -moz-box-shadow:-4px -4px 4px #cccccc;
+
+    padding:20px;
+    margin: 50px auto;   /*10px 10px 10px 10px;  */
+    max-width: 640px;
+
+}
+
+#article-title{
+   font: 20px/25px 'BitstreamVeraSansRoman', Arial, sans-serif;
+   padding-top: 15px;
+   color: #000;
+   decoration: none;
+}
+
+.contact{
+       font: 18px/20px 'BitstreamVeraSansRoman', Arial, sans-serif;
+       padding:10px 20px 0px 0px;
+       text-align: right;
+}
+
+.contact a{
+    color: #333;
+    text-decoration:none;
+}
+.contact a:hover
+{  background-color: rgba(225,210,31,0.05);
+    color: #333;
+    text-decoration:none;
+}
+
+.gpg {
+font-family:Courier;
+font-size:12px;"
+}
+
+.article-list li{
+    padding-top: 10px;
+}
+
+.article-list li:first-child{
+    padding-top: 0px;
+}
+
+.gray{
+    color: #666;
+}
+
+blockquote{
+    color: #333;
+    font-size: 28px;
+    padding: 20px 10px 0px 10px;
+
+}
+
+.caption{
+    float: right;
+    font-size: 12px;
+}
+
+ul.biblio{
+     list-style-type: none;
+}
+
+/* Rotation Fancyness */
+
+.rotateright{
+    -webkit-transition-duration: 0.1s;
+    -moz-transition-duration: 0.1s;
+    -o-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+
+    overflow:hidden;
+
+    }
+
+.rotateleft{
+    -webkit-transition-duration: 0.1s;
+    -moz-transition-duration: 0.1s;
+    -o-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+
+    overflow:hidden;
+
+    }
+
+
+.rotateright:hover
+{
+    -webkit-transform:rotate(-1deg) scale(1.08);
+    -moz-transform:rotate(-1deg)  scale(1.08);
+    -o-transform:rotate(-1deg) scale(1.08);
+}
+
+.rotateleft:hover
+{
+    -webkit-transform:rotate(1deg) scale(1.08);
+    -moz-transform:rotate(1deg)  scale(1.08);
+    -o-transform:rotate(1deg) scale(1.08);
+}
+
+
+/*  Format and fonts */
+#homelink
+{
+    text-decoration:none;
+    color: #000;
+}
