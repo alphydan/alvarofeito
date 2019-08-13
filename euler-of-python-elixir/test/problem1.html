@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-
-<title>euler-project-problem1</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-
 <style type="text/css">
     /*!
 *
@@ -13078,11 +13070,12 @@ div#notebook {
 <h2 id="Problem-1">Problem 1<a class="anchor-link" href="#Problem-1">&#182;</a></h2><blockquote><p>If we list all the natural numbers below 10 that are multiples of 3  or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.</p>
 <p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
 </blockquote>
-<p>The sum up to $N$ of numbers which are multiples of 3 can be expressed as $$ S_3 = \sum_{n=1}^{N} 3n$$.  Equally for multiples of 5 up to $N'$ the sum will be: $$ S_5 = \sum_{n=1}^{N'} 5n$$.</p>
+<p>The sum up to $N$ of numbers which are multiples of 3 can be expressed as $$ S_3 = \sum_{n=1}^{N} 3n$$  Equally for multiples of 5 up to $N'$ the sum will be: $$ S_5 = \sum_{n=1}^{N'} 5n$$</p>
 <p>Adding both together we get:
 $$
 S = S_3 + S_5 = 3 \sum_{n=1}^{1000/3}n + 5  \sum_{n=1}^{1000/5-1}n
-$$
+  $$
+<br />  
 Or, more precisely the sum of multiples of 3 should go up to <code>floor(1000/3)=333</code>, since $333 \times 3 = 999$ will be the last multiple before $1000$.  This however, will double-count some of the multiples.  For example $\{15, 30, 45, 60\}$ are both in $S_3$ and $S_5$. We need to subtract the sum of the numbers which contain multiples of both which we can call $S_{3,5}$.  This sum can be expressed as:
 $$
 S_{3,5} = 15 \sum_{n=1}^{\lfloor 1000/15 \rfloor} n
